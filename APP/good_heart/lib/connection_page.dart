@@ -53,7 +53,7 @@ class _ConnectionPage extends State<ConnectionPage> {
                 TextButton(
                   child: Text('Ok'),
                   onPressed: (){
-                    if(_formKey.currentState!.validate()){
+                    if(_formKey.currentState!.validate()){ // AQUI
                       // Do something like updating SharedPreferences or User Settings etc.
                       Navigator.of(context).pop();
                     }
@@ -222,7 +222,7 @@ class _ConnectionPage extends State<ConnectionPage> {
                       var sendToServer = CommunicationWithServer(IdMsg: "Testing connection", OpCode: 100);
                       socket!.client!.write(sendToServer.toJson());
                       
-                      socket!.listener.listen((List<int> bytes) {
+                      await socket!.listener.listen((List<int> bytes) {
                         _textEditingControllerConnectionTest.text = (new String.fromCharCodes(bytes).trim());
                       }, 
                     

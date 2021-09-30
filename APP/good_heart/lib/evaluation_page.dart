@@ -209,8 +209,8 @@ class _EvaluationState extends State<Evaluation> {
                                 await socket!.listener.listen((List<int> bytes) {
 
                                   listOfFiles = jsonToList(new String.fromCharCodes(bytes).trim());
-                                  print(listOfFiles[0].ECGfile);
-                                  print(listOfFiles[1].ECGfile);
+                                  // print(listOfFiles[0].ECGfile);
+                                  // print(listOfFiles[1].ECGfile);
 
                                   }, 
                                   onError: (error, StackTrace trace) async {
@@ -251,7 +251,7 @@ class _EvaluationState extends State<Evaluation> {
 
                               }catch(_) {
 
-                                await showAlertWifiNotConnected(context);
+                                await showAlertWifiNotConnected(context); // Nao necessariamente o problema vai ser o wifi nao conectado, pode ser qlqlr coisa que saia do try
                               }
                               
                             },
